@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-3">
+        <form action="post" th:action="@{/films/new}" th:object="${filmForm}">
+            <h2>Nuovo contatto</h2>
+            <div>
+                <label>Titolo</label>
+                <input th:field="*{titolo}" type="text">
+                <div th:if="${#fields.hasErrors('titolo')}">
+                    <span th:errors="*{titolo}" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <label>Genere</label>
+                <input th:field="*{genere}" type="text">
+                <div th:if="${#fields.hasErrors('genere')}">
+                    <span th:errors="*{genere}" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <label>anno</label>
+                <input th:field="*{anno}" type="text">
+                <div th:if="${#fields.hasErrors('anno')}">
+                    <span th:errors="*{anno}" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <label>voto</label>
+                <input th:field="*{voto}" type="text">
+                <div th:if="${#fields.hasErrors('voto')}">
+                    <span th:errors="*{voto}" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <a href="@{/films/{codice}}" class="btn btn-primary">Indietro</a>
+                <input class="btn btn-success" type="reset" value="Svuota">
+                <input class="btn btn-success" type="submit" value="Conferma">
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>
